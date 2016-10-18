@@ -1,2 +1,5 @@
 // Custom bootstrap variables must be set or imported before bootstrap itself.
-@import "bootstrap";
+@import "bootstrap";  //gets pulled from bootstrap gem
+
+@import "pages";  
+	//contains the jumbotron-home style
