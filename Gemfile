@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.2p95"
+ruby "2.2.2"
 
 #added to get bootstrap 4
 #https://github.com/twbs/bootstrap-rubygem
