@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.2.2"
 
+gem 'devise'
 #added to get bootstrap 4
 #https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 4.0.0.alpha4'
