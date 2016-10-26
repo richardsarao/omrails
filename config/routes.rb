@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users
   # get 'pages/home' #this is the path of folders in the omrails folder. pages is in views folder and home is the home.html.erb file
 
