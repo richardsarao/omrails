@@ -1,48 +1,61 @@
-require 'test_helper'
 
-class TweetsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @tweet = tweets(:one)
+
+class TweetsController < ApplicationController
+
+  # GET /tweets   capital Tweet is the tweet model. its a way to get a tweet from the db.  the @tweet is the variable that contrains the result of the function.  the @tweet gets put into the page (ie the view)that is displayed.
+  def index
+    @tweets = Tweet.all
   end
 
-  test "should get index" do
-    get tweets_url
-    assert_response :success
+  # GET /tweets/1
+  def show
+   @tweet = Tweet.find(params[:id])
+   
   end
 
-  test "should get new" do
-    get new_tweet_url
-    assert_response :success
+  # GET /tweets/new
+  def new
+   # @tweet = Tweet.new  'replaced with Devise below'
+   @tweet = current_user.tweets.new #sets a new tweets id to the current user.
   end
 
-  test "should create tweet" do
-    assert_difference('Tweet.count') do
-      post tweets_url, params: { tweet: { content: @tweet.content, user_id: @tweet.user_id } }
+  # GET /tweets/1/edit
+  def edit
+    @tweet = current_user.tweets.find(params[:id])
+  end
+
+  # POST /tweets
+  def create
+    #@tweet = Tweet.new(tweet_params) 'replaced with Devise below'
+    @tweet = current_user.tweets.new(tweet_params)
+    if @tweet.save
+      redirect_to @tweet, notice: 'Tweet was successfully created.'
+    else
+      render :new 
     end
-
-    assert_redirected_to tweet_url(Tweet.last)
   end
 
-  test "should show tweet" do
-    get tweet_url(@tweet)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_tweet_url(@tweet)
-    assert_response :success
-  end
-
-  test "should update tweet" do
-    patch tweet_url(@tweet), params: { tweet: { content: @tweet.content, user_id: @tweet.user_id } }
-    assert_redirected_to tweet_url(@tweet)
-  end
-
-  test "should destroy tweet" do
-    assert_difference('Tweet.count', -1) do
-      delete tweet_url(@tweet)
+  # PATCH/PUT /tweets/1
+  def update
+    @tweet = current_user.tweets.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to @tweet, notice: 'Tweet was successfully updated.'
+    else
+      render :edit
     end
-
-    assert_redirected_to tweets_url
   end
+
+  # DELETE /tweets/1
+  def destroy
+    @tweet = current_user.tweets.find(params[:id])
+    @tweet.destroy
+    redirect_to tweets_url, notice: 'Tweet was successfully destroyed.'
+  end
+
+  private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def tweet_params
+      params.require(:tweet).permit(:content)
+    end
 end
