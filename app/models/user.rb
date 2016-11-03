@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tweets    #added so that you can associate many tweets with one user.
+  has_many :pins
 end
