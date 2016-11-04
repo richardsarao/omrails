@@ -1,3 +1,4 @@
+<!--  located at app/views/tweets/ -->
 <%= form_for(tweet) do |f| %>
   <% if tweet.errors.any? %>
     <div id="error_explanation">
@@ -11,11 +12,6 @@
     </div>
   <% end %>
 
-<!--   <div class="form-group">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, class: "form-control" %>
-  </div> not needed becasue user id of the tweet is filled in automatically vie current_user in tweet_controller.rb-->
-
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control" %>
@@ -24,3 +20,4 @@
     <%= f.submit class: "btn-btn-primary" %>
 
 <% end %>
+

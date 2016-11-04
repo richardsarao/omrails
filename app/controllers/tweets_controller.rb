@@ -1,3 +1,4 @@
+# located at app/controllers/
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   #sends user to sign in page. is defined by devise
@@ -27,10 +28,10 @@ class TweetsController < ApplicationController
   # POST /tweets
   def create
     @tweet = current_user.tweets.new(tweet_params)
-    if @tweet.save  #if save completes then redirect to show
+    if @tweet.save  #if save completes then redirect to show page
       redirect_to @tweet, notice: 'Tweet was successfully created.'        
     else
-     render :new       
+     render :new  #if save fales then redirect to new page      
     end   
   end
 
