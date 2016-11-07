@@ -11,7 +11,7 @@
             </div>
             <img src="..." alt="Card image">
             <div class="card-block">
-              <p class="card-text"><%= current_user.email %></p>
+              <p class="card-text"><%= current_user.username %></p>
               <a href="#" class="card-link">Pins</a>
               <a href="#" class="card-link">Another link</a>
             </div>
@@ -25,7 +25,7 @@
           <ul class="list-group">
             <% @tweets.each do |tweet| %>
                 <%= link_to tweet, class: "list-group-item list-group-item-action" do %><!--tweet = tweet_path(tweet) class makes whole line link to show page -->
-                    <h5 class="list-group-item-heading"><%= tweet.user.email%></h5>
+                    <h5 class="list-group-item-heading"><%= tweet.user.username%></h5>
                     <p class="list-group-item-text"><%= tweet.content %></p>                
                 <% end %>         
             <% end %>

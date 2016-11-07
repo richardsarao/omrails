@@ -1,3 +1,4 @@
+#app/admin/user.rb
 ActiveAdmin.register User do
 
 # See permitted parameters documentation:
@@ -14,20 +15,24 @@ ActiveAdmin.register User do
 # end
  
  #permits admin users to change only email and admin status  
-	permit_params :email, :admin
+	permit_params :email, :admin, :name, :username
 
-#customizes index form to only show email and admin col.
+#customizes index form to show email, admin, name & username cols.
 	form do |f|   
 		f.semantic_errors
 		f.inputs do
-			f.input :email
+			f.input :email #vid 56 8:56
 			f.input :admin
+			f.input :name
+			f.input :username
 		end
 		f.actions
 	end
 
 	index do
 		id_column
+		column :name  #vid56
+		column :username
 		column :email
 		column :admin
 		actions

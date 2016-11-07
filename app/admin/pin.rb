@@ -13,5 +13,5 @@ ActiveAdmin.register Pin do
 #   permitted
 # end
 permit_params :user, :content
-
+#adds Id & Content columns to the pins admin page
 end
