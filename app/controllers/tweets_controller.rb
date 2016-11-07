@@ -1,4 +1,4 @@
-# located at app/controllers/
+#app/controllers/tweets_controller.rb
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   #sends user to sign in page. is defined by devise
