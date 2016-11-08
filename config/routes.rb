@@ -1,8 +1,17 @@
 #config/routes.rb
 Rails.application.routes.draw do
-  get 'users/:username', to: 'users#show', as: 'user'
-
-  resources :items, :pins, :tweets
+  #get 'users/:username', to: 'users#show', as: 'user'  #to get to user's showpage
+ # resources :users, only: :show, param: :username  alternative to get to user's showpage
+ get 'feed', to: 'feed#show'
+ 
+  resources :users, only: :show, param: :username do #vid59 9:31
+    member do
+      post 'follow', to: 'follows#create'
+      delete 'unfollow', to: 'follows#destroy'
+    end
+  end
+ 
+ resources :items, :pins, :tweets
  
   ActiveAdmin.routes(self)
   devise_for :users

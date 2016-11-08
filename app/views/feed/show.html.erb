@@ -1,4 +1,4 @@
-<!-- app/views/tweets/index.html.erb-->
+<!--app/views/feed/show.html.erb -->
 <div class="container">
 
   <div class="row"><!-- row \/-->
@@ -20,9 +20,9 @@
          
       <div class="col-md-8"><!-- col 8 \/ -->
           <% if user_signed_in? %>  
-            <%= link_to 'New Tweet', new_tweet_path %>
+            <%= link_to 'Make a New Tweet', new_tweet_path %>
           <% end %>
-          <p>  Tweets from everyone! </p>
+          	<p>  Tweets from users you follow </p>
           <ul class="list-group">
             <% @tweets.each do |tweet| %>
                 <%= link_to tweet, class: "list-group-item list-group-item-action" do %><!--tweet = tweet_path(tweet) class makes whole line link to show page -->
@@ -36,7 +36,3 @@
   </div><!-- row /\ -->
 
 </div>
-    
-
-
-

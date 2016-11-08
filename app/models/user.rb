@@ -12,4 +12,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, length: {minimum: 6}  
   validates :name, presence: true #vid 56 11:07
+
+  acts_as_followable  #vid 59  2:27  enables user to use follow methods
+  acts_as_follower
 end
