@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /items
   # GET /items.json
@@ -10,21 +10,23 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new
   def new
-    @item = Item.new
+    @item = current_user.items.new
   end
 
   # GET /items/1/edit
   def edit
+     @item = current_user.items.find(params[:id])
   end
 
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.new(item_params)
 
     respond_to do |format|
       if @item.save
@@ -41,6 +43,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
+      @item = current_user.items.find(params[:id])
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
@@ -54,6 +57,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    @item = current_user.items.find(params[:id])
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }

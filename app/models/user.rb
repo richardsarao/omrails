@@ -15,4 +15,5 @@ class User < ApplicationRecord
 
   acts_as_followable  #vid 59  2:27  enables user to use follow methods
   acts_as_follower
+  acts_as_voter  #vid 68 9:26
 end
