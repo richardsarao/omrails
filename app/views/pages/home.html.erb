@@ -1,3 +1,4 @@
+<!-- app/views/pages/home.html.erb -->
  <% if user_signed_in? %>
     <div class="jumbotron jumbotron-home">
         <div class="container">
@@ -7,9 +8,10 @@
 <% else %>
     <div class="jumbotron jumbotron-home">
         <div class="container"><font color="white">
-                <h1> Welcome to my website!</h1>
-                <h4>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h4>
-                <%= link_to "Learn more »", "#", class: "btn btn-primary btn-lg" %> 
+                <h1> Welcome to my Tweet app!</h1>
+                <h4>I created this app for my Ruby on Rails Class. Sign up or sign in and start exploring tweets!</h4>
+             <!--    <%= link_to "Make a Tweet", "#", class: "btn btn-primary btn-lg" %>  -->
+
         </font></div>
     </div>
     <div class="container">
@@ -22,17 +24,24 @@
 
                 &ensp;Javascript can be be used to make elements move or behave in ways that make your site more compelling. We didn't learm much Javascript in this class but I'm told Javascript isn't that hard to learn.</p>    
 
-                <p><%= link_to "Coming soon!", "#", class: "btn btn-secondary" %></p>
+                <!-- <p><%= link_to "Coming soon!", "#", class: "btn btn-secondary" %></p> -->
             </div>
             <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><%= link_to "View details", "#", class: "btn btn-secondary" %></p>
+                <h2>What I learned in my Ruby on Rails Class</h2>
+                
+                <p>&ensp; Ruby on Rails is a package of pre-written code that can be used to creat all that one needs to start writing a web app.  It provides the folder structure and necessary files to get started with adding features by either writing them yourself or by installing Ruby Gems such as Paperclip to upload images, Devise to setup users or Active Admin to have various administrating functions.
+                <br>
+                &ensp; New feature sets are implemented by using Rail's scaffold command which adds a set of folders and web pages for your new feature, adds the necessary columns to your database by updating the db schema,  provides a controller for you to specify what happens for each of th CRUD actions your feature will make use of and a model to define relationships between objects you app uses. Rails apps are based on the MVC (Models, Views, Controllers pattern), where every feature has its own set of views, a controller and a model. 
+                <br>
+                &ensp; While writing my rails app, I learned how to use git, Github.com, and how to get my apps live on Heroku. Git and Github help with version control what you write your apps, while Heroku is a place in the cloud to have your app running for all to see.
+                </p>
+
+               <!--  <p><%= link_to "View details", "#", class: "btn btn-secondary" %></p> -->
             </div>
             <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><%= link_to "View details", "#", class: "btn btn-secondary" %></p>
+                <h2>What I learned on my Javascript Class</h2>
+                <p>Just started Monday Nov 7th.... </p>
+                <!-- p><%= link_to "Details coming soom", "#", class: "btn btn-secondary" %></p> -->
             </div>
         </div>
     </div>

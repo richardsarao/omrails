@@ -12,4 +12,6 @@ class FollowsController < ApplicationController
   	  Follow.find_by(followable: user, follower: current_user).destroy
   	  redirect_to user_path(user.username), notice: "Sucessfully un-followed user"
   end
+
+
 end

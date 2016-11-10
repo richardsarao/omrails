@@ -6,15 +6,12 @@
       <div class="col-md-4"><!-- col 4 \/ -->
         <div class="card"><!-- card \/ -->
           <% if user_signed_in? %>
+              
+              
               <div class="card-block">
-                <h4 class="card-title">Your Account</h4>
-                <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              </div>
-              <img src="..." alt="Card image">
-              <div class="card-block">  
-                <p class="card-text"><%= link_to current_user.username, user_path(current_user.username) %></p> <!-- vid #57-->
-                <a href="#" class="card-link">Pins</a>
-                <a href="#" class="card-link">Another link</a>
+                <p class="card-text">Current user: </p>
+                <p class="card-title"><%= link_to current_user.username, user_path(current_user.username) %></p> <!-- vid #57-->
+         
               </div>
             <% else %>
               <p class="card-text"><%= link_to "Sign up now!", signup_path %></p> <!--vid #63-->
@@ -23,9 +20,9 @@
       </div><!-- col 4 /\ -->
          
       <div class="col-md-8"><!-- col 8 \/ -->
-          <% if user_signed_in? %>  
+          <!--<% if user_signed_in? %>  
             <%= link_to 'New Tweet', new_tweet_path %>
-          <% end %>
+          <% end %> -->
           <p>  Tweets from everyone! </p>
           <ul class="list-group">
             <% @tweets.each do |tweet| %>
@@ -34,7 +31,8 @@
                     <% if tweet.image.present? %> <!-- vid #70 -->
                         <center><%= image_tag tweet.image %></center>
                     <% end %>
-                    <p class="list-group-item-text"><%= tweet.content %></p>                
+                    <p class="list-group-item-text"><%= tweet.content %></p>  
+                    <p>Number of votes: <%= tweet.votes_for.up.size %></p> 
                 <% end %>         
             <% end %>
           </ul>

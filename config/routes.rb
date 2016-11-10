@@ -25,7 +25,16 @@ Rails.application.routes.draw do
  end
 
 
- resources :pins, :tweets
+resources :pins, :tweets
+
+resources :tweets do 
+    member do
+      post 'vote', to: 'votes#create'
+      delete 'unvote', to: 'votes#destroy'
+      post 'follow', to: 'follows#create'
+      delete 'unfollow', to: 'follows#destroy'
+    end
+ end
  
   root 'pages#home' 
   #this makes the home.html.erb file the home page at localhost 3000
