@@ -1,6 +1,4 @@
 <!-- app/views/items/index.html.erb -->
-<p id="notice"><%= notice %></p>
-
 <h1>Items</h1>
 
 <table>
@@ -31,7 +29,7 @@
                 <td><%= link_to 'Vote!', vote_item_path(item), method: :post %></td>
             <% end %>
         <% end %>
-        
+
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
